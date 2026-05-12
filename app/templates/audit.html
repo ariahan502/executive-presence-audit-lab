@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero hero-tight">
+  <div class="shell prose-block">
+    <p class="eyebrow">Conversion page</p>
+    <h1>Executive Presence Audit</h1>
+    <p class="lede">A structured review designed to help professionals understand how they project authority, credibility, and leadership readiness in high-visibility environments.</p>
+    <div class="cta-row">
+      <a class="button button-primary" href="{{ url_for('main.consultation_request') }}" data-event-name="cta_click" data-cta-label="request_consultation">Request a Consultation</a>
+      <a class="button button-secondary" href="{{ url_for('main.newsletter') }}" data-event-name="cta_click" data-cta-label="newsletter_from_audit">Get Weekly Notes First</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell card-grid">
+    <article class="card">
+      <h2>What the audit helps assess</h2>
+      <p>Leadership presence, client-facing confidence, communication alignment, and whether visible professional signals reinforce the level of responsibility you want to hold.</p>
+    </article>
+    <article class="card">
+      <h2>Who it is for</h2>
+      <p>Managers, directors, founders, and professionals in finance, consulting, and tech who want a sharper alignment between capability and perceived authority.</p>
+    </article>
+    <article class="card">
+      <h2>Typical reasons people reach out</h2>
+      <p>Promotion visibility, executive communication, stronger client confidence, or a clearer leadership image in higher-stakes environments.</p>
+    </article>
+  </div>
+</section>
+{% endblock %}

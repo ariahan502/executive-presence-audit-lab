@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Content-led advisory funnel</p>
+      <h1>Turn Presence Into Professional Leverage</h1>
+      <p class="lede">Explore practical guidance on executive presence, leadership credibility, and client-facing influence, then decide whether an Executive Presence Audit is the right next step.</p>
+      <div class="cta-row">
+        <a class="button button-primary" href="{{ url_for('main.audit') }}" data-event-name="cta_click" data-cta-label="get_audit">Get Your Executive Presence Audit</a>
+        <a class="button button-secondary" href="{{ url_for('main.newsletter') }}" data-event-name="cta_click" data-cta-label="join_newsletter">Join the Newsletter</a>
+      </div>
+    </div>
+    <div class="card panel">
+      <h2>What this funnel is built to test</h2>
+      <ul>
+        <li>Which landing pages drive consultation intent</li>
+        <li>Which content themes produce newsletter capture</li>
+        <li>Which user paths show higher downstream lead quality</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-header">
+      <p class="eyebrow">Start with the right path</p>
+      <h2>Choose the context that matches your role</h2>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <h3>For Women in Finance</h3>
+        <p>Industry-specific framing for professionals navigating visibility, authority, and executive readiness in finance environments.</p>
+        <a href="{{ url_for('main.finance') }}" data-event-name="cta_click" data-cta-label="finance_path">Explore this path</a>
+      </article>
+      <article class="card">
+        <h3>For Client-Facing Leaders</h3>
+        <p>Practical guidance for consultants, sellers, founders, and advisors whose credibility affects trust and influence quickly.</p>
+        <a href="{{ url_for('main.client_facing') }}" data-event-name="cta_click" data-cta-label="client_facing_path">Explore this path</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="shell">
+    <div class="section-header">
+      <p class="eyebrow">Read the insights</p>
+      <h2>Three content entry points for path analysis</h2>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <h3><a href="{{ url_for('main.article', slug='promotion-signals') }}">How Executive Presence Shapes Promotion Signals</a></h3>
+        <p>Authority-framed content designed to attract professionals thinking about leadership readiness.</p>
+      </article>
+      <article class="card">
+        <h3><a href="{{ url_for('main.article', slug='visual-credibility') }}">Why Client-Facing Professionals Need Visual Credibility</a></h3>
+        <p>Practical content focused on professional trust, presence, and external credibility.</p>
+      </article>
+      <article class="card">
+        <h3><a href="{{ url_for('main.article', slug='women-in-finance') }}">What Women in Finance Often Get Wrong About Leadership Presence</a></h3>
+        <p>Industry-specific content designed to test whether targeted framing changes conversion behavior.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

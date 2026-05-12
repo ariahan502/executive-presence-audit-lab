@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero hero-tight">
+  <div class="shell prose-block">
+    <p class="eyebrow">Practical path</p>
+    <h1>For Client-Facing Leaders</h1>
+    <p class="lede">Build visible credibility in roles where trust, communication, and professional presence directly affect influence.</p>
+    <div class="cta-row">
+      <a class="button button-primary" href="{{ url_for('main.consultation_request') }}" data-event-name="cta_click" data-cta-label="client_facing_to_consultation">Book an Audit Intro</a>
+      <a class="button button-secondary" href="{{ url_for('main.article', slug='visual-credibility') }}" data-event-name="cta_click" data-cta-label="client_facing_to_article">Read the Related Article</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell card-grid">
+    <article class="card">
+      <h2>Who this is for</h2>
+      <p>Consultants, partnership teams, sellers, founders, advisors, and anyone whose credibility affects influence early in the interaction.</p>
+    </article>
+    <article class="card">
+      <h2>Why presence matters here</h2>
+      <p>Expertise may be strong, but inconsistent visual and communication signals can still weaken trust or reduce executive-level confidence.</p>
+    </article>
+    <article class="card">
+      <h2>Typical goals</h2>
+      <p>Stronger first impressions, better leadership signaling, and a more coherent presentation in high-stakes external settings.</p>
+    </article>
+  </div>
+</section>
+{% endblock %}

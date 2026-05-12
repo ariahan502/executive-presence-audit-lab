@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero hero-tight">
+  <div class="shell prose-block">
+    <p class="eyebrow">Industry-specific path</p>
+    <h1>Executive Presence for Women in Finance</h1>
+    <p class="lede">For professionals navigating high-performance, high-visibility environments where credibility, clarity, and leadership presence shape opportunity.</p>
+    <div class="cta-row">
+      <a class="button button-primary" href="{{ url_for('main.audit') }}" data-event-name="cta_click" data-cta-label="finance_to_audit">Explore the Audit</a>
+      <a class="button button-secondary" href="{{ url_for('main.newsletter') }}" data-event-name="cta_click" data-cta-label="finance_to_newsletter">Get Weekly Executive Presence Notes</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell card-grid">
+    <article class="card">
+      <h2>Why this audience is different</h2>
+      <p>Finance environments can place extra weight on steadiness, polish, role alignment, and how authority is perceived under pressure.</p>
+    </article>
+    <article class="card">
+      <h2>Common challenges</h2>
+      <p>Professionals may feel strong in execution but less visible in leadership signaling, or polished without appearing decisively senior.</p>
+    </article>
+    <article class="card">
+      <h2>What stronger presence can support</h2>
+      <p>Promotions, internal leadership visibility, stronger client trust, and more coherent executive readiness signals.</p>
+    </article>
+  </div>
+</section>
+{% endblock %}

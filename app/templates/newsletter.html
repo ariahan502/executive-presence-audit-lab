@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero hero-tight">
+  <div class="shell prose-block">
+    <p class="eyebrow">Mid-funnel capture</p>
+    <h1>Get Weekly Executive Presence Notes</h1>
+    <p class="lede">Short, practical insights on leadership presence, client-facing credibility, and professional signaling for higher-visibility roles.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell split-layout">
+    <div class="card">
+      <h2>What you'll receive</h2>
+      <ul>
+        <li>Practical leadership presence ideas</li>
+        <li>Notes tailored to finance and client-facing contexts</li>
+        <li>A lower-commitment path before requesting a consultation</li>
+      </ul>
+    </div>
+    <form class="card form-card track-form" method="post" action="{{ url_for('main.submit_newsletter') }}" data-form-name="newsletter">
+      <input type="hidden" name="anonymous_id">
+      <input type="hidden" name="session_id">
+      <input type="hidden" name="landing_page" value="{{ request.path }}">
+      <input type="hidden" name="page_title" value="{{ page_title }}">
+      <input type="hidden" name="content_theme" value="{{ page_meta.content_theme }}">
+      <input type="hidden" name="message_framing" value="{{ page_meta.message_framing }}">
+      <input type="hidden" name="funnel_stage_intent" value="{{ page_meta.funnel_stage_intent }}">
+      <input type="hidden" name="form_name" value="newsletter">
+      <input type="hidden" name="article_slug" value="">
+      <input type="hidden" name="traffic_type" value="live">
+      <input type="hidden" name="utm_source">
+      <input type="hidden" name="utm_medium">
+      <input type="hidden" name="utm_campaign">
+      <input type="hidden" name="referrer">
+
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>Job title
+        <input type="text" name="job_title">
+      </label>
+      <label>Industry
+        <input type="text" name="industry">
+      </label>
+      <button class="button button-primary" type="submit">Join the Newsletter</button>
+      <p class="form-note">Interested in deeper support? <a href="{{ url_for('main.consultation_request') }}">Request a consultation</a>.</p>
+    </form>
+  </div>
+</section>
+{% endblock %}

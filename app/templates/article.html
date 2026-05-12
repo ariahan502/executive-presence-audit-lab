@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero hero-tight">
+  <div class="shell prose-block">
+    <p class="eyebrow">Article</p>
+    <h1>{{ article.meta.title }}</h1>
+    <p class="lede">This article serves as a measurable content entry point in the shadow implementation, with a distinct theme, framing, and CTA path.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell article-layout">
+    <div class="article-body card">
+      {% for section in article.sections %}
+        <section class="article-section">
+          <h2>{{ section.heading }}</h2>
+          <p>{{ section.body }}</p>
+        </section>
+      {% endfor %}
+    </div>
+    <aside class="card article-sidebar">
+      <h2>Path metadata</h2>
+      <p><strong>Theme:</strong> {{ article.meta.content_theme }}</p>
+      <p><strong>Framing:</strong> {{ article.meta.message_framing }}</p>
+      <p><strong>Intent:</strong> {{ article.meta.funnel_stage_intent }}</p>
+      <a class="button button-primary" href="{{ url_for(article.cta_target) }}" data-event-name="cta_click" data-cta-label="article_to_next_step">{{ article.cta_label }}</a>
+    </aside>
+  </div>
+</section>
+{% endblock %}
