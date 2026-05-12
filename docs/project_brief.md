@@ -1,7 +1,7 @@
 # Executive Presence Audit Lab
 
 ## Objective
-Build a live content-to-lead funnel that can later support funnel analysis, segmentation, lead-quality scoring, and path analysis for a shadow implementation of a growth/data science internship narrative.
+Build a measurable content-to-lead funnel that supports funnel analysis, segmentation, lead-quality scoring, and path analysis.
 
 ## Target Audience
 - Women in finance
@@ -20,6 +20,7 @@ Build a live content-to-lead funnel that can later support funnel analysis, segm
 - Consultation request form
 - Client-side session and acquisition capture
 - Local SQLite storage for leads/signups
+- Analytics views for session, funnel, path, and lead-score reporting
 
 ## Non-Goals for v1
 - YouTube, podcast, Instagram, TikTok
