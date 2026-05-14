@@ -1,0 +1,10 @@
+asset_id,asset_type,page_url,title,content_theme,message_framing,funnel_stage_intent,audience_segment,primary_cta,cta_style,taxonomy_version,label_source
+article_promotion_signals,article,/articles/promotion-signals,How Executive Presence Shapes Promotion Signals,executive_presence,authority,awareness,promotion_readiness,article_to_next_step,bridge_to_conversion,v1_manual,manual
+article_visual_credibility,article,/articles/visual-credibility,Why Client-Facing Professionals Need Visual Credibility,client_facing_credibility,practical,awareness,client_facing_leaders,article_to_next_step,bridge_to_conversion,v1_manual,manual
+article_women_in_finance,article,/articles/women-in-finance,What Women in Finance Often Get Wrong About Leadership Presence,women_in_finance,industry_specific,awareness,women_in_finance,article_to_next_step,bridge_to_conversion,v1_manual,manual
+page_consultation,conversion_page,/consultation-request,Request a Consultation,consultation,conversion,conversion,cross_audience,submit_request,high_intent_form,v1_manual,manual
+page_newsletter,conversion_page,/newsletter,Newsletter Signup,newsletter_capture,practical,consideration,cross_audience,join_newsletter,nurture_capture,v1_manual,manual
+page_home,landing_page,/,Executive Presence Audit Lab,general_hub,authority,awareness,cross_audience,get_audit,direct_conversion,v1_manual,manual
+page_audit,landing_page,/executive-presence-audit,Executive Presence Audit,executive_presence,authority,conversion,cross_audience,request_consultation,direct_conversion,v1_manual,manual
+page_client_facing,landing_page,/for-client-facing-leaders,For Client-Facing Leaders,client_facing_credibility,practical,consideration,client_facing_leaders,client_facing_to_consultation,direct_conversion,v1_manual,manual
+page_finance,landing_page,/for-women-in-finance,Executive Presence for Women in Finance,women_in_finance,industry_specific,consideration,women_in_finance,finance_to_audit,direct_conversion,v1_manual,manual

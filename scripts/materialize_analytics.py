@@ -31,7 +31,20 @@ def main():
             select name
             from sqlite_master
             where type = 'view'
-              and name in ('session_facts', 'funnel_rollup', 'path_performance', 'lead_scoring', 'lead_score_summary')
+              and name in (
+                  'session_facts',
+                  'funnel_rollup',
+                  'path_performance',
+                  'lead_scoring',
+                  'lead_score_summary',
+                  'content_performance',
+                  'lead_intent_features',
+                  'growth_decision_ranking',
+                  'content_label_diagnostics',
+                  'enriched_growth_decision_ranking',
+                  'content_label_comparison',
+                  'model_assisted_growth_decision_ranking'
+              )
             order by name
             """
         ):

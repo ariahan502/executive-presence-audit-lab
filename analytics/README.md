@@ -19,15 +19,36 @@ The analytics layer now carries a `traffic_type` dimension so synthetic validati
   - grouped funnel metrics by landing page, theme, framing, and acquisition source
 - `path_performance`
   - grouped path summaries for simple path-to-conversion analysis
+- `content_performance`
+  - joins the content registry to session behavior for content/theme/framing comparisons
 - `lead_scoring`
   - heuristic lead-quality scoring for consultation leads
 - `lead_score_summary`
   - grouped quality summary by lead tier, content theme, and source
+- `lead_intent_features`
+  - session-level feature table for downstream consultation-intent modeling
+- `growth_decision_ranking`
+  - segment-level ranking across content theme, framing, audience, and CTA style for growth prioritization
+- `content_label_diagnostics`
+  - compares manual taxonomy labels with text-derived framing, audience, and CTA labels
+- `enriched_growth_decision_ranking`
+  - re-runs growth ranking logic using text-derived framing, audience, and CTA labels
+- `content_label_comparison`
+  - compares manual, text-derived, and model-assisted labels side by side
+- `model_assisted_growth_decision_ranking`
+  - re-runs growth ranking logic using model-assisted framing, audience, and CTA labels
 
 ## Materialize the views
 
 ```bash
+./.venv/bin/python scripts/sync_content_assets.py
+./.venv/bin/python scripts/enrich_content_labels.py
+./.venv/bin/python scripts/import_model_assisted_labels.py
 ./.venv/bin/python scripts/materialize_analytics.py
+./.venv/bin/python scripts/export_content_taxonomy.py
+./.venv/bin/python scripts/train_lead_intent_model.py
+./.venv/bin/python scripts/evaluate_feature_ablation.py
+./.venv/bin/python scripts/export_llm_label_prompts.py
 ```
 
 ## Example queries
@@ -44,6 +65,34 @@ select *
 from path_performance
 where traffic_type = 'live'
 order by sessions_with_consultation_lead desc, sessions desc;
+
+select *
+from content_performance
+where traffic_type = 'live'
+order by consultation_lead_rate desc, sessions desc;
+
+select *
+from growth_decision_ranking
+where traffic_type = 'live'
+order by segment_rank asc;
+
+select *
+from content_label_diagnostics
+order by framing_match_flag asc, audience_match_flag asc, asset_id asc;
+
+select *
+from enriched_growth_decision_ranking
+where traffic_type = 'live'
+order by segment_rank asc;
+
+select *
+from content_label_comparison
+order by manual_vs_model_framing_match asc, manual_vs_model_audience_match asc, asset_id asc;
+
+select *
+from model_assisted_growth_decision_ranking
+where traffic_type = 'live'
+order by segment_rank asc;
 
 select *
 from lead_scoring

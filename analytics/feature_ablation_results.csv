@@ -1,0 +1,5 @@
+feature_set,roc_auc,pr_auc,brier_score,top_decile_capture,precision_at_top_decile,lead_score_capture_share,validation_sessions,validation_positives
+behavior_source_path,0.996732,0.997076,0.034866,0.222222,1.0,0.209025,35,18
+manual_taxonomy,0.993464,0.99399,0.04117,0.222222,1.0,0.244857,35,18
+text_derived_taxonomy,0.993464,0.99399,0.041142,0.222222,1.0,0.244857,35,18
+model_assisted_taxonomy,0.993464,0.99399,0.041142,0.222222,1.0,0.244857,35,18

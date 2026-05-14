@@ -2,6 +2,8 @@ from dataclasses import dataclass
 
 from flask import Blueprint, current_app, flash, jsonify, redirect, render_template, request, url_for
 
+from .content_registry import CONTENT_BY_SLUG, CONTENT_BY_URL
+
 
 bp = Blueprint("main", __name__)
 
@@ -156,44 +158,51 @@ def event_payload_from_form(form):
 
 @bp.route("/")
 def home():
-    meta = PageMeta("Executive Presence Audit Lab", "general_hub", "authority", "awareness")
+    asset = CONTENT_BY_URL["/"]
+    meta = PageMeta(asset.title, asset.content_theme, asset.message_framing, asset.funnel_stage_intent)
     return render_template("home.html", **page_payload(meta))
 
 
 @bp.route("/executive-presence-audit")
 def audit():
-    meta = PageMeta("Executive Presence Audit", "executive_presence", "authority", "conversion")
+    asset = CONTENT_BY_URL["/executive-presence-audit"]
+    meta = PageMeta(asset.title, asset.content_theme, asset.message_framing, asset.funnel_stage_intent)
     return render_template("audit.html", **page_payload(meta))
 
 
 @bp.route("/for-women-in-finance")
 def finance():
-    meta = PageMeta("Executive Presence for Women in Finance", "women_in_finance", "industry_specific", "consideration")
+    asset = CONTENT_BY_URL["/for-women-in-finance"]
+    meta = PageMeta(asset.title, asset.content_theme, asset.message_framing, asset.funnel_stage_intent)
     return render_template("finance.html", **page_payload(meta))
 
 
 @bp.route("/for-client-facing-leaders")
 def client_facing():
-    meta = PageMeta("For Client-Facing Leaders", "client_facing_credibility", "practical", "consideration")
+    asset = CONTENT_BY_URL["/for-client-facing-leaders"]
+    meta = PageMeta(asset.title, asset.content_theme, asset.message_framing, asset.funnel_stage_intent)
     return render_template("client_facing.html", **page_payload(meta))
 
 
 @bp.route("/newsletter")
 def newsletter():
-    meta = PageMeta("Newsletter Signup", "newsletter_capture", "practical", "consideration")
+    asset = CONTENT_BY_URL["/newsletter"]
+    meta = PageMeta(asset.title, asset.content_theme, asset.message_framing, asset.funnel_stage_intent)
     return render_template("newsletter.html", **page_payload(meta))
 
 
 @bp.route("/consultation-request")
 def consultation_request():
-    meta = PageMeta("Request a Consultation", "consultation", "conversion", "conversion")
+    asset = CONTENT_BY_URL["/consultation-request"]
+    meta = PageMeta(asset.title, asset.content_theme, asset.message_framing, asset.funnel_stage_intent)
     return render_template("consultation.html", **page_payload(meta))
 
 
 @bp.route("/articles/<slug>")
 def article(slug):
+    registry_asset = CONTENT_BY_SLUG.get(slug)
     article_data = ARTICLES.get(slug)
-    if article_data is None:
+    if article_data is None or registry_asset is None:
         return redirect(url_for("main.home"))
     return render_template(
         "article.html",
